@@ -32,3 +32,22 @@ const palChecker = (word) => {
 palChecker('mom');  //yes
 palChecker('monkeybutt'); //no
 palChecker('racecar'); //yes
+
+
+let animals = ['moles', 'spiders', 'snakes', 'roaches'];
+
+const lastItem = animals.pop(); // roaches
+const firstItem = animals.shift(); // moles
+animals.push('bat');
+animals.unshift('baby hippo');
+console.log('animals', animals); // ['baby hippo, 'spiders', 'snakes' 'bat'] 
+
+// 1. What is your starting value? : 0 (98% of time)
+// 2. What is your stopping value? : something.length (98% of time)
+// 3. How are you incrementing? : +1
+
+for(let i = 0;  i < animals.length; i++){
+    // do something here
+    console.log(animals[i]);
+
+}
