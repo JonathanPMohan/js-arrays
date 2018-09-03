@@ -146,20 +146,20 @@ const volunteersStringBuilder = () => {
 const imagesStringBuilder = () => {
     let newString = '';
     for(let i = 0; i<elizabethSanger.images.length; i++) {
-        newString += `<div class ="images">`;
-        newString += `<img href="http://${elizabethSanger.images[i].imageUrl}">`;
+        newString += `<div class ="image">`;
+        newString += `<img src="${elizabethSanger.images[i].imageUrl}">`;
         newString += `<h6>${elizabethSanger.images[i].description}</h6>`;
         newString += `<h6>${elizabethSanger.images[i].type}</h6>`;
         newString += `</div>`;    
     }
-    printToDom(newString, 'events');
+    printToDom(newString, 'images');
 };
 
 
 
 
 
-  donationFormStringBuilder ();
+  donationFormStringBuilder();
   voterRegistrationStringBuilder();
   statementsStringBuilder();
   congressionalDistrictStringBuilder();
@@ -174,9 +174,81 @@ const updateVoterRegistration = (newUrl) => {
    elizabethSanger.voterRegistrationUrl = newUrl;
    voterRegistrationStringBuilder();  
 }
-updateVoterRegistration()
 
+const updateDonationForm = (newUrl) => {
+    elizabethSanger.donationFormUrl = newUrl;
+    donationFormStringBuilder();
+}
 
+const updateCongressionalDistrict = (newDistrict) => {
+    elizabethSanger.congressionalDistrict = newDistrict;
+    congressionalDistrictStringBuilder();
+     
+ }
+
+ const updateBiography = (newBiography) => {
+     elizabethSanger.biography = newBiography;
+     biographyStringBuilder();
+ }
+
+ const updateMissionStatement = (newMissionStatement) => {
+     elizabethSanger.missionStatement = newMissionStatement;
+     missionStatementStringBuilder();
+ }
+
+ const  updateStatements = (category, statement) => {
+    newStatement = {
+        category: category, 
+        statement: statement
+    } 
+    elizabethSanger.statements.push(newStatement);
+     statementsStringBuilder();
+ }
+
+ const updateVolunteers = (name, address, email, phone, availability, activities) => {
+     newVolunteer = {
+         name: name, 
+         address: address, 
+         email: email, 
+         phone: phone, 
+         availability: availability,
+         activities: activities
+     }
+     elizabethSanger.volunteers.push(newVolunteer);
+     volunteersStringBuilder();
+ }
+
+ const updateEvents = (date, title, description) => {
+     newEvent = {
+         date: date,
+         title: title, 
+         description: description
+     }
+     elizabethSanger.events.push(newEvent);
+     eventsStringBuilder();
+ }
+
+ const updateImages = (imageUrl, description, type) => {
+     newImage = {
+         imageUrl: imageUrl,
+         description: description,
+         type: type
+     }
+     elizabethSanger.images.push(newImage);
+     imagesStringBuilder();
+ }
+
+// Calling the Functions //
+
+updateVoterRegistration('www.lifehacker.com');
+updateDonationForm('www.theredzone.org');
+updateCongressionalDistrict(6);
+updateBiography("Don't vote for me, I'll ruin your city.");
+updateMissionStatement("Steal all of your money and children");
+updateStatements("jobs", "I stand by all crooks and liars.");
+updateVolunteers("Matt Kelly", "100, 100 Lane", "MKed@gmail.com", "6156156677", "all damn night", "riding bikes");
+updateEvents("5,5,2019", "Jonathan's 40TH", "I'm getting old");
+updateImages("http://media.comicbook.com/2017/07/robocop-2-1010410.jpg", "protector", "headshot");
 
 
 
